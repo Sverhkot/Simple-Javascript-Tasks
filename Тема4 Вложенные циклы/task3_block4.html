@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вложенные циклы</title>
+    <style>
+      table {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      td {
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // Задача 3. Создайте шахматную доску в виде таблицы, в которой чередуются ячейки с белым и черным цветом фона.
+
+      function blackCell() {
+        document.write(
+          "<td style='background-color: black; height: 50px; width: 50px'>&nbsp</td>"
+        );
+      }
+      function whiteCell() {
+        document.write(
+          "<td style='background-color: white; height: 50px; width: 50px'>&nbsp</td>"
+        );
+      }
+      document.write("<table>");
+      for (let row = 1; row <= 8; row++) {
+        document.write("<tr>");
+        for (let column = 1; column <= 8; column++) {
+          if ((row + column) % 2 === 0) {
+            whiteCell();
+          } else {
+            blackCell();
+          }
+        }
+        document.write("</tr>");
+      }
+
+      document.write("</table>");
+
+      // второй способ более длинный:
+      // Там все то же самое, но отличается тело вложенного цикла
+
+      // function blackCell() {
+      //   document.write(
+      //     "<td style='background-color: black; height: 50px; width: 50px'>&nbsp</td>"
+      //   );
+      // }
+      // function whiteCell() {
+      //   document.write(
+      //     "<td style='background-color: white; height: 50px; width: 50px'>&nbsp</td>"
+      //   );
+      // }
+      // document.write("<table>");
+      // for (let row = 1; row <= 8; row++) {
+      //   document.write("<tr>");
+      //   for (let column = 1; column <= 8; column++) {
+      //     // if (row % 2 !== 0 && column % 2 !== 0) {
+      //     //   whiteCell();
+      //     // }
+      //     // if (row % 2 !== 0 && column % 2 === 0) {
+      //     //   blackCell();
+      //     // }
+      //     // if (row % 2 === 0 && column % 2 !== 0) {
+      //     //   blackCell();
+      //     // }
+      //     // if (row % 2 === 0 && column % 2 === 0) {
+      //     //   whiteCell();
+      //     // }
+      //   }
+      //   document.write("</tr>");
+      // }
+
+      // document.write("</table>");
+    </script>
+  </body>
+</html>

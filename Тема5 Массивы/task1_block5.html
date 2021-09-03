@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Массивы</title>
+  </head>
+  <body>
+    <script>
+      // Задача 1а. Используя метод splice(), замените в массиве, состоящем из нескольких строковых переменных, складывающихся в одно предложение, указанное пользователем слово.
+      let poem = ["Мороз", "и", "солнце", "день", "чудесный"];
+      let number = prompt(
+        "введите номер слова, которое хотите заменить от 1 до " + poem.length
+      );
+      if (number < 1 || number > poem.length) {
+        alert(
+          "Это недопустимо! Введите число в диапазоне от 1 до " + poem.length
+        );
+        number = prompt(
+          "введите номер слова, которое хотите заменить от 1 до " + poem.length
+        );
+      }
+      let word = prompt("Введите слово, на которое хотите заменить");
+      poem.splice(number - 1, 1, word);
+      document.write(poem.join(" ") + " <br>");
+
+      //   Задача 1b. Из этого же массива удалите предпоследний элемент, заменив его на слово "пень", не используя цифру 3,
+      //  а отталкиваясь от длины массива, т.е. свойства poem.length.
+
+      poem.splice(poem.length - 2, 1, "пень");
+      document.write(poem.join(" "));
+    </script>
+  </body>
+</html>

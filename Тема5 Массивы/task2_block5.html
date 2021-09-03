@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Массивы</title>
+  </head>
+  <body>
+    <script>
+      // Задача 2. Создайте массив из 20 случайных чисел в диапазоне от 1 до 100. Выведите в консоль или с помощью document.write():
+      // все четные числа этого массива
+      // все числа, которые делятся на 3
+      // все числа, которые делятся на 5
+      // все числа, которые делятся на 10
+      let randomNumbers = [];
+
+      for (let i = 1; i <= 20; i++) {
+        let number = Math.floor(Math.random() * 100 + 1);
+        randomNumbers.push(number);
+      }
+
+      let evenNumbers = randomNumbers.filter((elem) => elem % 2 === 0);
+      let multipleOf3 = randomNumbers.filter((elem) => elem % 3 === 0);
+      let multipleOf5 = randomNumbers.filter((elem) => elem % 5 === 0);
+      let multipleOf10 = randomNumbers.filter((elem) => elem % 10 === 0);
+      document.write(
+        "Массив случайных чисел: " +
+          randomNumbers.join(", ") +
+          "<br>" +
+          "Все четные числа этого массива: " +
+          evenNumbers.join(", ") +
+          "<br>" +
+          "Все числа, которые делятся на 3: " +
+          multipleOf3.join(", ") +
+          "<br>" +
+          "Все числа, которые делятся на 5: " +
+          multipleOf5.join(", ") +
+          "<br>" +
+          "Все числа, которые делятся на 10: " +
+          multipleOf10.join(", ")
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Создание html-элементов в JavaScript. Обработка событий</title>
+    <style>
+      #wrapper {
+        width: 100%;
+      }
+      .pictures {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+    <script>
+      // Есть такой же набор изображений, но при клике на каждом из них выполняется замена фото на соседнее, т.е. изображение
+      // flower1.png меняется на flower2.png, flower2.png на flower3.png, а последнее flower8.png - на flower1.png.
+
+      let flowers = [
+        "../img/flower1.png",
+        "../img/flower2.png",
+        "../img/flower3.png",
+        "../img/flower4.png",
+        "../img/flower5.png",
+        "../img/flower6.png",
+        "../img/flower7.png",
+        "../img/flower8.png",
+      ];
+      let wrapper = document.getElementById("wrapper");
+      for (let i = 0; i < flowers.length; i++) {
+        let img = document.createElement("img");
+        img.src = flowers[i];
+        img.className = "pictures";
+        img.onclick = function () {
+          if (i < 7) {
+            document.getElementsByClassName("pictures")[i].src = flowers[i + 1];
+          } else {
+            document.getElementsByClassName("pictures")[i].src = flowers[0];
+          }
+        };
+        wrapper.append(img);
+      }
+    </script>
+  </body>
+</html>

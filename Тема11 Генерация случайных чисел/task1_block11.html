@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Генерация случайных чисел</title>
+    <style>
+      p {
+        height: 40px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        line-height: 38px;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // Задача 1. Необходимо сделать разноцветными 7 абзацев, задавая цвет их фона в системе rgb()
+      // с помощью генерации случайных чисел в диапазоне от 0 до 255. При обновлении страницы цвет абзацев должен случайным образом меняться.
+      for (let i = 0; i < 7; i++) {
+        let color =
+          "(" +
+          Math.floor(Math.random() * 256) +
+          "," +
+          Math.floor(Math.random() * 256) +
+          "," +
+          Math.floor(Math.random() * 256) +
+          ")";
+        document.write(
+          "<p style=background-color:rgb" + color + ">Абзац " + (i + 1) + "</p>"
+        );
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тема 3. Циклы</title>
+    <style>
+      p {
+        height: 40px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        line-height: 38px;
+        color: #249775;
+        border: 3px dotted #249775;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // Задача 4. С помощью метода document.write() необходимо вывести друг под другом 5 абзацев с текстом “Абзац ..цифра..” и разным цветом фона,
+      // который задается с помощью случайных чисел
+
+      for (let i = 1; i <= 5; i++) {
+        let color =
+          "(" +
+          Math.floor(Math.random() * 256) +
+          "," +
+          Math.floor(Math.random() * 256) +
+          "," +
+          Math.floor(Math.random() * 256) +
+          ")";
+        document.write(
+          "<p style=background-color:rgb" + color + ">Абзац " + i + "</p>"
+        );
+      }
+    </script>
+  </body>
+</html>

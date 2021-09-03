@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Условные конструкции if...else, switch ... case, тернарный оператор
+    </title>
+  </head>
+  <body>
+    <script>
+      // Задача 1 Операторы сравнения, тернарный оператор, использование объекта Date
+      let name = prompt("Введите свое имя");
+      let yearOfBirth = +prompt("Введите год своего рождения");
+      let now = new Date();
+      let age = now.getFullYear() - yearOfBirth;
+      let remainder = age % 10;
+
+      remainder === 1
+        ? document.write(name + ": " + age + " год")
+        : (stop = true);
+      remainder === 2 || remainder === 3 || remainder === 4
+        ? document.write(name + ": " + age + " года")
+        : (stop = true);
+      remainder > 4
+        ? document.write(name + ": " + age + " лет")
+        : (stop = true);
+    </script>
+  </body>
+</html>

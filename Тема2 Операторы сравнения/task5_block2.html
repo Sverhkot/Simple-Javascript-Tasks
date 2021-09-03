@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Тема 2. Условные конструкции if...else, switch ... case, тернарный
+      оператор
+    </title>
+  </head>
+  <body>
+    <script>
+      // Задача 5. На какие цифры делится введенное число
+
+      let number = +prompt("Введите число");
+      let result = "";
+      if (isNaN(number) === true) {
+        alert("Это не число!");
+        location.reload();
+      }
+      for (let i = 2; i <= 10; i++) {
+        if (number % i === 0) {
+          result += "Число делится на " + i + "\n";
+        }
+      }
+      alert(result);
+    </script>
+  </body>
+</html>

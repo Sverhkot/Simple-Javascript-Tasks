@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Функции-замыкания</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      // Задача 1. Создайте функцию, которая с помощью document.write() будет добавлять в тело документа абсолютно
+      // позиционированную картинку столько раз, сколько пользователь запишет вызовов внутренней возвращаемой функции.
+      // Каждый раз изображение должно уменьшаться в ширине на 50-100px (на скриншоте - на 60px)
+      // и располагаться по центру предыдущей картинки, создавая эффект глубины.
+
+      function addImg(width, url) {
+        let height = width;
+        return function () {
+          let left, top;
+          left = (window.innerWidth - width) / 2;
+          top = (window.innerHeight - height) / 2;
+          document.write(
+            "<div style=background-image:url('" +
+              url +
+              "');background-size:" +
+              width +
+              "px;background-position:center;position:absolute;top:" +
+              top +
+              "px;left:" +
+              left +
+              "px;width:" +
+              width +
+              "px;height:" +
+              height +
+              "px></div>"
+          );
+          width = width - 60;
+          height = width;
+        };
+      }
+      let createImg = addImg(
+        600,
+        "https://source.unsplash.com/NN83EXPgQ5c/600x600"
+      );
+
+      createImg();
+      createImg();
+      createImg();
+    </script>
+  </body>
+</html>

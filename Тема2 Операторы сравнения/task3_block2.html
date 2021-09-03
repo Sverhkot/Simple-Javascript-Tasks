@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Тема 2. Условные конструкции if...else, switch ... case, тернарный
+      оператор
+    </title>
+  </head>
+  <body>
+    <script>
+      // Задача 3 Угадай-ка число
+
+      let number = +prompt("Введите число от 1 до 10");
+      let randomNumber = Math.floor(Math.random() * 10 + 1);
+      if (number === randomNumber) {
+        console.log("Вы счастливчик! Ваше число " + number);
+      } else {
+        console.log(
+          "Не угадали! Ваше число " +
+            number +
+            ", а выпало число " +
+            randomNumber
+        );
+      }
+    </script>
+  </body>
+</html>

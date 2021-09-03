@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Объявление переменных. Арифметические операторы</title>
+  </head>
+  <body>
+    <script>
+      // ЗАДАЧА 5. Вывод данных с помощью document.write(). Я решила это задание двумя способами
+
+      // Примечание: Используются разные кавычки т.к. в задании сказано использовать при выводе двойные, одинарные и обратные кавычки
+
+      // Вариант решения №1 (использую цикл for)
+
+      let arr = [];
+      let expr = "";
+
+      for (let i = 0; i < 3; i++) {
+        let names = prompt("Введите имя и фамилию студента");
+        arr.push(names);
+        expr += "<li>" + names + "</li>";
+        document.write('<p>' + names + '</p>');
+      }
+      document.write(`<ol>` + expr + `</ol>`);
+
+      // Вариант решения №2 (без цикла)
+
+      let student1 = prompt("Введите имя и фамилию студента");
+      let student2 = prompt("Введите имя и фамилию студента");
+      let student3 = prompt("Введите имя и фамилию студента");
+      document.write(
+        `<p>` +
+          student1 +
+          `</p><p>` +
+          student2 +
+          `</p><p>` +
+          student3 +
+          `</p><p>`
+      );
+      document.write(
+        "<ol><li>" +
+          student1 +
+          "</li><li>" +
+          student2 +
+          "</li><li>" +
+          student3 +
+          "</li></ol>"
+      );
+    </script>
+  </body>
+</html>

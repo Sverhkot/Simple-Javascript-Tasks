@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Генерация случайных чисел</title>
+    <style>
+      div {
+        width: 100%;
+      }
+      table {
+        border: 1px solid orange;
+        width: 350px;
+        height: 200px;
+        margin: 0 auto;
+      }
+      td {
+        border: 1px solid orange;
+        padding: 10px;
+        text-align: center;
+      }
+      button {
+        position: absolute;
+        width: 100px;
+        height: 50px;
+        background-color: orange;
+        border: 1px solid orange;
+        border-radius: 10px;
+        left: 46.5%;
+        top: 215px;
+      }
+      button:hover {
+        background-color: red;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let winningCombination = [];
+      let sum = 0;
+
+      for (let i = 0; i < 5; i++) {
+        winningCombination.push(Math.floor(Math.random() * 46) + 1);
+      }
+
+      function lottery() {
+        for (let i = 0; i < 3; i++) {
+          document.write("<tr>");
+          for (let y = 0; y < 5; y++) {
+            winningNumbers = Math.floor(Math.random() * 46) + 1;
+            if (winningCombination.indexOf(winningNumbers) >= 0) {
+              document.write(
+                "<td style=background-color:red>" + winningNumbers + "</td>"
+              );
+              sum++;
+            } else {
+              document.write("<td>" + winningNumbers + "</td>");
+            }
+          }
+          document.write("</tr>");
+        }
+        switch (sum) {
+          case 1:
+            alert("Вы выиграли 100грн");
+            break;
+          case 2:
+            alert("Вы выиграли 300грн");
+            break;
+          case 3:
+            alert("Вы выиграли 500грн");
+            break;
+          case 4:
+            alert("Вы выиграли 700грн");
+            break;
+          case 5:
+            alert("Вы выиграли 1500грн");
+            break;
+          case 0:
+            alert("Вы выиграли 0грн");
+            break;
+        }
+      }
+
+      document.write("<div><table>");
+      lottery();
+      document.write("</table></div>");
+    </script>
+  </body>
+</html>

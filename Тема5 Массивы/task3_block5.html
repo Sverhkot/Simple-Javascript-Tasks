@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Массивы</title>
+  </head>
+  <body>
+    <script>
+      // Задача 3. Есть массив студентов.
+      // С помощью методов unshift() и  push() добавьте к существующим студентам Березина и Ященко.
+      // Затем удалите с помощью splice() Семенова и добавьте вместо него Ковалеву и Горобченко.
+      // Добавьте к этому массиву второй массив с помощью метода concat() или spread-оператора.
+      // Отсортируйте массив по алфавиту.
+      // При каждом из перечисленных действий выводите новый массив с помощью document.write() в виде нумерованного списка.
+      // Можете задать ему атрибут start="0", чтобы нумерация начиналась с 0.
+      function arrayOutput(arr) {
+        document.write("<ol start=0>");
+        for (let i = 0; i < arr.length; i++) {
+          document.write("<li>" + arr[i] + "</li>");
+        }
+        document.write("</ol>");
+      }
+
+      let group1 = ["Агеев", "Дмитренко", "Иванов", "Семенов", "Шаповалов"];
+      let group2 = ["Филонов", "Изюмов", "Кабанов", "Дюдарев"];
+
+      document.write("Есть массив студентов: ");
+      arrayOutput(group1);
+      document.write("Добавляем Березина в начало массива и Ященко в конец: ");
+      group1.unshift("Березина");
+      group1.push("Ященко");
+      arrayOutput(group1);
+      document.write(
+        "Удаляем Семенова и добавляем вместо него Ковалеву и Горобченко: "
+      );
+      group1.splice(4, 1, "Ковалева", "Горобченко");
+      arrayOutput(group1);
+      document.write("Есть второй массив студентов: ");
+      arrayOutput(group2);
+      document.write("Обьединим два массива: ");
+      let group = group1.concat(group2);
+      arrayOutput(group);
+      document.write("Отсортируем полученный масив по алфавиту: ");
+      group.sort();
+      arrayOutput(group);
+    </script>
+  </body>
+</html>

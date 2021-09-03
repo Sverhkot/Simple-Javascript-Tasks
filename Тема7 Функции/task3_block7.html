@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Функции</title>
+  </head>
+  <body>
+    <script>
+      //  Задача 3. Напишите функцию, которая принимает 2 параметра: длину и ширину прямоугольника и вычисляет его площадь.
+      // Если в функцию передали 1 параметр, то функция вычисляет площадь квадрата.
+      // Подсказка: используйте параметры функции по умолчанию.
+
+      function rectangleArea(height, width = height) {
+        return height * width;
+      }
+      console.log(rectangleArea(5, 7));
+    </script>
+  </body>
+</html>

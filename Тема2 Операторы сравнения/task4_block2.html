@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Тема 2. Условные конструкции if...else, switch ... case, тернарный
+      оператор
+    </title>
+  </head>
+  <body>
+    <script>
+      // Задача 4 Чет-нечет. Сумма и произведение чисел
+
+      let number = prompt("Введите четырехзначное число");
+      let even = 1;
+      let odd = 0;
+
+      function ifEven(number) {
+        for (let i = 0; i < number.length; i++) {
+          even = even * +number[i];
+        }
+        return even;
+      }
+
+      function ifOdd(number) {
+        for (let i = 0; i < number.length; i++) {
+          odd = odd + +number[i];
+        }
+        return odd;
+      }
+
+      // Я добавила проверку на случай если пользователь ввел нечетырехзначное число
+      if (number.length !== 4) {
+        alert(
+          number + " не соответствует! Требуется ввести четырехзначное число!"
+        );
+        location.reload();
+      }
+
+      if (+number % 2 === 0) {
+        console.log(
+          "Ваше число " +
+            number +
+            " - четное! Произведение цифр числа = " +
+            ifEven(number)
+        );
+      } else {
+        console.log(
+          "Ваше число " +
+            number +
+            " - нечетное! Сумма цифр числа = " +
+            ifOdd(number)
+        );
+      }
+    </script>
+  </body>
+</html>

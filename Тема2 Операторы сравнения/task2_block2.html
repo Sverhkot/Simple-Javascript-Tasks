@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Условные конструкции if...else, switch ... case, тернарный оператор
+    </title>
+  </head>
+  <body>
+    <script>
+      // Задача 2
+      // Узнайте у пользователя, на какой этаж нужно занести мебель, и рассчитайте стоимость транспортировки.
+
+      let floor = +prompt("Введите этаж");
+      let cost = 0;
+      for (let i = 2; i <= floor; i++) {
+        if (i <= 4) {
+          cost += 20;
+        }
+        if (i >= 5 && i <= 7) {
+          cost += 30;
+        }
+        if (i >= 8) {
+          cost += 40;
+        }
+      }
+      alert("Заносим на " + floor + " этаж за " + cost + " грн");
+
+      // то же самое, но с использованием switch...case
+      // for (let i = 2; i <= floor; i++) {
+      //   switch (true) {
+      //     case i <= 4:
+      //       cost += 20;
+      //       break;
+      //     case i >= 5 && i <= 7:
+      //       cost += 30;
+      //       break;
+      //     case i >= 8:
+      //       cost += 40;
+      //   }
+      // }
+      // alert("Заносим на " + floor + " этаж за " + cost + " грн");
+    </script>
+  </body>
+</html>

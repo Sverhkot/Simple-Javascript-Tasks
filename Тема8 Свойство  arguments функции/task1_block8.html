@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Свойство arguments функции.</title>
+  </head>
+  <body>
+    <script>
+      // Задача 1. Напишите функцию, которая принимает произвольное количество аргументов в виде строк
+      // и выводит их через пробел с помощью document.write() в тело html-документа.
+      // Например, функция  showWords("I've", "been", "learning", "JavaScript", "for", "a", "month")
+      // должна вывести фразу "I've been learning JavaScript for a month".
+      function showWords() {
+        for (let i = 0; i < arguments.length; i++) {
+          document.write(arguments[i] + " ");
+        }
+      }
+      showWords("I've", "been", "learning", "JavaScript", "for", "a", "month");
+    </script>
+  </body>
+</html>

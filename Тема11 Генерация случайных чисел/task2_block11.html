@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Генерация случайных чисел</title>
+    <style>
+      .wrapper {
+        width: 800px;
+        margin: 0 auto;
+      }
+      .digit {
+        display: inline-block;
+        width: 80px;
+        height: 105px;
+        padding: 20px;
+        border: 3px dashed #666;
+        border-radius: 10px;
+        font-size: 3.2rem;
+        text-align: center;
+        margin: 20px;
+        position: relative;
+        cursor: pointer;
+        line-height: 95px;
+      }
+      .digit:after {
+        content: "";
+        position: absolute;
+        width: 120%;
+        height: 120%;
+        border: 3px solid #666;
+        border-radius: 15px;
+        top: -12%;
+        left: -12.5%;
+      }
+      .digit.red {
+        color: #f00;
+        border-color: #f00;
+        background-image: repeating-linear-gradient(
+          45deg,
+          transparent 10px,
+          #ffd8d8 30px
+        );
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="digit" data-digit="0">1</div>
+      <div class="digit" data-digit="0">1</div>
+      <div class="digit" data-digit="0">1</div>
+      <div class="digit" data-digit="0">1</div>
+    </div>
+    <script>
+      //Задача 2. Необходимо сгенерировать случайное 4-хзначное число, т.е. число в диапазоне от 1000 до 9999 (или до 10000 не включительно).
+      // Это число нужно разбить на части и поместить внутрь 4-х html-элементов с классом .digit, например, так, чтобы в каждом из них в качестве data-атрибута
+      // (например, data-digit) была размещена только 1 цифра из 4-х.
+      // Вы можете это сделать с помощью операторов деления и остатка от деления (%) либо с помощью преобразования числа в строку и использования метода split()
+      // для строк.
+      // При клике на блок с цифрой необходимо менять значения цифр от 1 до 9, а затем до 0 и проверять, совпало ли текущее значение цифры с атрибутом  data-digit.
+      // Если это произошло, то вам необходимо:
+      // 1.удалить обработчик события для этого блока с цифрой (способ 1, способ 2);
+      // 2.назначить для него другой класс (вы найдете стили для примера после изображения);
+      // 3.установить курсор с помощью css-свойства  cursor: not-allowed для этого блока.
+
+      // Примечание: Изначально внутри каждого блока с цифрой должна находится 1.
+      // Поэтому в случае, если случайное число содержит эту цифру, необходимо сразу изменить внешний вид цифрового блока в соответствии с 3 условиями выше.
+      function styleChange(element) {
+        element.classList.add("red");
+        element.removeEventListener("click", digitСhange);
+      }
+
+      function digitСhange(event) {
+        let number = event.target.textContent;
+        let afterClick = (event.target.innerHTML = +number + 1);
+        if (afterClick === 10) {
+          afterClick = event.target.innerHTML = 0;
+        }
+        if (+event.target.dataset.digit === +afterClick) {
+          styleChange(event.target);
+        }
+      }
+
+      let randomNumber =
+        Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000 + "";
+      let elements = document.getElementsByClassName("digit");
+
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].dataset.digit = randomNumber.split("")[i];
+        elements[i].addEventListener("click", digitСhange);
+        if (+elements[i].textContent === +elements[i].dataset.digit) {
+          styleChange(elements[i]);
+        }
+      }
+
+      console.log(randomNumber);
+    </script>
+  </body>
+</html>

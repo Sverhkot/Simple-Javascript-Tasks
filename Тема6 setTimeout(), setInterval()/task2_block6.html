@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setTimeout(), setInterval()</title>
+    <style></style>
+  </head>
+  <body>
+    <span id="element"></span>
+    <script>
+      // Задача 2. Создайте эффект печатной машинки, выводя какую-нибудь заранее заготовленную фразу или попросив пользователя ее ввести.
+      // Решите задачу с помощью  setInterval() и setTimeout().
+      let phrase = prompt("Введите фразу");
+      let arr = phrase.split("");
+      let elem = document.getElementById("element");
+
+      for (let i = 0; i < arr.length; i++) {
+        setTimeout(() => (elem.innerHTML += arr[i]), i * 1000);
+      }
+      // Второе решение с помощью setInterval()
+      // let i = 0;
+      // let timerId;
+
+      // timerId = setInterval(() => {
+      //   if (i < arr.length) {
+      //     elem.innerHTML += arr[i];
+      //     i = i + 1;
+      //   }
+      //   if (i === arr.length) {
+      //     clearInterval(timerId);
+      //   }
+      // }, 1000);
+    </script>
+  </body>
+</html>

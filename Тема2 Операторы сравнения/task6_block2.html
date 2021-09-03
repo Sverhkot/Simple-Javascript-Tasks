@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Тема 2. Условные конструкции if...else, switch ... case, тернарный
+      оператор
+    </title>
+  </head>
+  <body>
+    <script>
+      // Задача 6. Несколько условий. Лестница if...else
+      let salary = +prompt("Введите зарплату");
+      let tax, percent;
+
+      function result(percent, tax, salary) {
+        return (
+          "Зарплата: " +
+          salary +
+          "\n" +
+          percent +
+          " налога: " +
+          tax +
+          "\n" +
+          "На руки: " +
+          (salary - tax)
+        );
+      }
+      if (salary <= 6000) {
+        tax = salary * 0.1;
+        percent = "10%";
+        alert(result(percent, tax, salary));
+      } else if (salary > 6000 && salary <= 10000) {
+        tax = salary * 0.15;
+        percent = "15%";
+        alert(result(percent, tax, salary));
+      } else if (salary > 10000 && salary <= 15000) {
+        tax = salary * 0.175;
+        percent = "17.5%";
+        alert(result(percent, tax, salary));
+      } else if (salary > 15000) {
+        tax = salary * 0.2;
+        percent = "20%";
+        alert(result(percent, tax, salary));
+      }
+
+      // Это еще один вариант решения при помощи switch...case
+
+      // switch (true) {
+      //   case salary <= 6000:
+      //     tax = salary * 0.1;
+      //     percent = "10%";
+      //     alert(result(percent, tax, salary));
+      //     break;
+      //   case salary > 6000 && salary <= 10000:
+      //     tax = salary * 0.15;
+      //     percent = "15%";
+      //     alert(result(percent, tax, salary));
+      //     break;
+      //   case salary > 10000 && salary <= 15000:
+      //     tax = salary * 0.175;
+      //     percent = "17.5%";
+      //     alert(result(percent, tax, salary));
+      //     break;
+      //   case salary > 15000:
+      //     tax = salary * 0.2;
+      //     percent = "20%";
+      //     alert(result(percent, tax, salary));
+      //     break;
+      // }
+    </script>
+  </body>
+</html>

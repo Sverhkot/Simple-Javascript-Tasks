@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Создание html-элементов в JavaScript. Обработка событий</title>
+    <style>
+      #wrapper {
+        width: 100%;
+      }
+      .pictures {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+    <script>
+      // Задача 4. Опять займемся заменой изображений.
+      // Теперь нужно сделать так, чтобы при клике на любом фото вы последовательно меняли его на первого соседа справа,
+      // потом на второго соседа справа и т.д.
+      // При клике на последнем изображении оно должно замениться на первое.
+      // В результате разнообразных кликов вывод картинок может поменяться на произвольный:
+
+      let cars = [
+        "../img/car1.jpg",
+        "../img/car2.jpg",
+        "../img/car3.jpg",
+        "../img/car4.jpg",
+        "../img/car5.jpg",
+        "../img/car6.jpg",
+        "../img/car7.jpg",
+        "../img/car8.jpg",
+      ];
+      let click = [0, 0, 0, 0, 0, 0, 0, 0];
+      let wrapper = document.getElementById("wrapper");
+      let pictures = document.getElementsByClassName("pictures");
+      for (let i = 0; i < cars.length; i++) {
+        let img = document.createElement("img");
+        img.src = cars[i];
+        img.className = "pictures";
+        img.onclick = function () {
+          if (click[i] < cars.length - i) {
+            click[i] += 1;
+            document.getElementsByClassName("pictures")[i].src =
+              cars[i + click[i]];
+          }
+          if (click[i] >= cars.length - i) {
+            click[i] = -i;
+            document.getElementsByClassName("pictures")[i].src =
+              cars[i + click[i]];
+          }
+          if (i === 7) {
+            click[i] = 0;
+            document.getElementsByClassName("pictures")[i].src = cars[0];
+          }
+        };
+
+        wrapper.append(img);
+      }
+    </script>
+  </body>
+</html>

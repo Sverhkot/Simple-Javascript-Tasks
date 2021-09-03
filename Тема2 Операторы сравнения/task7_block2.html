@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Тема 2. Условные конструкции if...else, switch ... case, тернарный
+      оператор
+    </title>
+  </head>
+  <body>
+    <script>
+      //  Задача 7. Составные условия.
+
+      let answers = [];
+      answers.push(confirm("Про волшебство должно быть?"));
+      answers.push(confirm("Надо, чтобы было смешно?"));
+      answers.push(confirm("Детективная история нужна?"));
+      answers.push(confirm("Бояться будете?"));
+
+      if (answers[0] && answers[1] && answers[2] && answers[3]) {
+        alert("Рекомендуемая книга: Джонатан Страуд. Кричащая лестница.");
+      } else if (!answers[0] && !answers[1] && !answers[2] && !answers[3]) {
+        alert("Рекомендуемая книга: Л.Н. Толстой. Война и мир");
+      } else if (answers[0] && !answers[1] && !answers[2] && !answers[3]) {
+        alert("Рекомендуемая книга: Джоан Роулинг.Гарри Поттер");
+      } else if (answers[0] && answers[1] && !answers[2] && !answers[3]) {
+        alert(
+          "Рекомендуемая книга: Братья Стругацкие. Понедельник начинается в субботу."
+        );
+      } else if (answers[0] && answers[1] && answers[2] && !answers[3]) {
+        alert("Рекомендуемая книга: Агата Кристи. Вечеринка в Хэллоуин.");
+      } else if (answers[0] && !answers[1] && answers[2] && !answers[3]) {
+        alert(
+          "Рекомендуемая книга: Диана Маш. Заноза для драконьего военачальника"
+        );
+      } else if (!answers[0] && answers[1] && !answers[2] && answers[3]) {
+        alert("Рекомендуемая книга: Кирилл Круганский. Смешно или страшно.");
+      } else if (!answers[0] && !answers[1] && !answers[2] && answers[3]) {
+        alert("Рекомендуемая книга: Стивен Кинг. Мизери.");
+      } else if (!answers[0] && !answers[1] && answers[2] && answers[3]) {
+        alert("Рекомендуемая книга: Эдгар По. Очень страшные истории.");
+      } else if (!answers[0] && answers[1] && !answers[2] && answers[3]) {
+        alert("Рекомендуемая книга: А. Маринина. Безупречная репутация");
+      }
+
+      console.log(answers);
+    </script>
+  </body>
+</html>

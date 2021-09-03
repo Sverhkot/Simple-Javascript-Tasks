@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Создание html-элементов в JavaScript. Обработка событий</title>
+    <style>
+      #wrapper {
+        width: 100%;
+      }
+      .pictures {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper" onclick="pictureСhange(event)">
+      <img src="../img/car1.jpg" class="pictures" data-id="0" data-click="0" />
+      <img src="../img/car2.jpg" class="pictures" data-id="1" data-click="0" />
+      <img src="../img/car3.jpg" class="pictures" data-id="2" data-click="0" />
+      <img src="../img/car4.jpg" class="pictures" data-id="3" data-click="0" />
+      <img src="../img/car5.jpg" class="pictures" data-id="4" data-click="0" />
+      <img src="../img/car6.jpg" class="pictures" data-id="5" data-click="0" />
+      <img src="../img/car7.jpg" class="pictures" data-id="6" data-click="0" />
+      <img src="../img/car8.jpg" class="pictures" data-id="7" data-click="0" />
+    </div>
+    <script>
+      // Задача 4. Опять займемся заменой изображений.
+      // Теперь нужно сделать так, чтобы при клике на любом фото вы последовательно меняли его на первого соседа справа,
+      // потом на второго соседа справа и т.д.
+      // При клике на последнем изображении оно должно замениться на первое.
+      // В результате разнообразных кликов вывод картинок может поменяться на произвольный:
+
+      function pictureСhange(event) {
+        let elem = event.target;
+        elem.dataset.click++;
+
+        let targetElem = getNthSibling(elem, elem.dataset.click);
+        console.log(targetElem);
+        elem.src = targetElem.src;
+      }
+
+      function getNthSibling(elem, count) {
+        for (let i = 0; i < count; i++) {
+          elem = elem.nextElementSibling;
+          if (elem === null) {
+            elem = document.getElementById("wrapper").firstElementChild;
+          }
+        }
+        return elem;
+      }
+    </script>
+  </body>
+</html>

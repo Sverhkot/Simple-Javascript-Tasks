@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setTimeout(), setInterval()</title>
+  </head>
+
+  <body>
+    <script>
+      // Задача 3. Выведите в тело документа 15 <span>-элементов с классом .circle, например, которые представляют собой круг, через равные промежутки времени (500 - 800ms).
+      // Но сначала выводится круг красного, потом желтого, потом зеленого цвета, а затем цвета поторяются: красный, желтый, зеленый.
+      let colors = ["red", "yellow", "green"];
+      let interval = 600;
+      let i = 0;
+      let counter = 0;
+      let spanElement =
+        "<span class=circle style=display:inline-block;margin:10px;width:100px;height:100px;border-radius:100px;background-color:";
+
+      setInterval(() => {
+        if (counter !== 15) {
+          document.write(spanElement + colors[i] + " ></span>");
+          counter++;
+          i++;
+          if (i === 3) {
+            i = 0;
+          }
+          if (counter % 5 === 0) {
+            document.write("</br>");
+          }
+        }
+      }, interval);
+    </script>
+  </body>
+</html>

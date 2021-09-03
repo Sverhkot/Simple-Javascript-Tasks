@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Функции</title>
+  </head>
+  <body>
+    <script>
+      // Задача 1. Напишите функцию, которая принимает 2 числа и возвращает 1,
+      // если первое число больше, чем второе; -1, если первое число меньше, чем второе, и 0, если числа равны.
+      // Попробуйте реализовать эту функцию не только с помощью if...else, но и с помощью тернарного оператора, и в виде стрелочной функции.
+
+      //   1-й способ при помощи if...else
+      //   function compare(number1, number2) {
+      //     if (number1 > number2) {
+      //       return 1;
+      //     } else if (number2 > number1) {
+      //       return -1;
+      //     } else if (number1 === number2) {
+      //       return 0;
+      //     }
+      //   }
+      //   console.log(compare(1, 7));
+
+      //   2-й способ при помощи тернарного оператора
+
+      //   function compare(number1, number2) {
+      //
+      //   }
+      //   console.log(compare(1, 7));
+
+      //   3-й способ при помощи стрелочной функции
+
+      let compare = (number1, number2) => {
+        return number1 > number2 ? 1 : number2 > number1 ? -1 : 0;
+      };
+      console.log(compare(1, 7));
+    </script>
+  </body>
+</html>
